@@ -1,7 +1,7 @@
 
 <!-- README.md is generated from README.Rmd. Please edit that file -->
 
-# phgrofit
+# phgrofit <a href='https://github.com/baynec2/phgrofit'><img src='man/hex-phgrofit.png' align="right" height="139" /></a>
 
 phgrofit is a R package that is designed to provide tools for making
 kinetic analysis of OD600 and pH data easy.
@@ -19,15 +19,14 @@ relationships between compounds.
 ## Installation
 
 ``` r
-devtools::install_github("Kaleido-Biosciences/phgrofit")
+# This used to be hosted under Kaleido's github. Due to uncertainties as to the fate of that account the 
+# maintained version has subsequently been forked to my account
+devtools::install_github("baynec2/phgrofit")
 ```
 
 <!-- badges: start -->
 
 [![R-CMD-check](https://github.com/Kaleido-Biosciences/phgrofit/workflows/R-CMD-check/badge.svg)](https://github.com/Kaleido-Biosciences/phgrofit/actions)
-[![DOI](https://zenodo.org/badge/288753400.svg)](https://zenodo.org/badge/latestdoi/288753400)
-
-
 <!-- badges: end -->
 
 # Using this package
@@ -41,10 +40,10 @@ data in the format produced from phgropro to use the rest of the
 phgrofit package.
 
 The easiest way to get data in this format is to use the plate reader
-protocols that are in the biotek\_plate\_reader\_protocols folder of
-this repository and use the export provided. Unfortunatly, this will
-only be usefull if the user happens to have acess to a Biotek Synergy H1
-plate reader.
+protocols that are in the biotek_plate_reader_protocols folder of this
+repository and use the export provided. Unfortunatly, this will only be
+usefull if the user happens to have acess to a Biotek Synergy H1 plate
+reader.
 
 Alternatively, the user can generate a dataframe in R through their own
 means that is compatible with the other phgrofit functions. Such a data
@@ -164,8 +163,8 @@ what flag returned, we can see that the lag length was calculated to be
 negative.
 
 Let’s look to see if this is actually a problem or not using the
-model\_fit\_check function. This function will allow you to visually
-check the model fit.
+model_fit_check function. This function will allow you to visually check
+the model fit.
 
 ``` r
 problem_wells = phgropro_output %>% 
@@ -208,15 +207,14 @@ print(head(problem_flag))
 #> 6              FALSE                          FALSE
 ```
 
-Now we can see that there is missing\_pH data. This returns TRUE only if
+Now we can see that there is missing_pH data. This returns TRUE only if
 25% or more of the data is NA. Let’s visually check using
-model\_fit\_check now.
+model_fit_check now.
 
-I didn’t mention this before, but if you pass a grouping\_vars argument
-to model\_fit\_check, it will only return a randomly sampled plot from
-the distinct conditions of your group. Let’s use this trick to look at a
-distinct randomly sampled well with different values for
-missing\_pH\_data
+I didn’t mention this before, but if you pass a grouping_vars argument
+to model_fit_check, it will only return a randomly sampled plot from the
+distinct conditions of your group. Let’s use this trick to look at a
+distinct randomly sampled well with different values for missing_pH_data
 
 ``` r
 comb = dplyr::left_join(phgropro_prob,problem_flag,by = "Sample.ID")
@@ -228,7 +226,7 @@ model_fit_check(comb,"missing_pH_data")
 Here we can clearly see that there is as problem with the data, we are
 missing a bunch of pH values!
 
-You can also use the model\_fit\_check function independantly of flag.
+You can also use the model_fit_check function independantly of flag.
 Like I mentioned before, this function allows the user to specify
 conditions to group by and subsequently plot a randomly sampled plot
 from each distinct member of the grouping. This allows the user to check
@@ -258,7 +256,7 @@ into values that they think are too high.
 ### Averaging
 
 Oftentimes, the user may wish to average kinetic or modeling data. This
-can easily be done with the avg\_phgropro and avg\_phgrofit functions
+can easily be done with the avg_phgropro and avg_phgrofit functions
 repectively. The user just has to specify the name of the colums that
 they wish to group by and then take the average for. Here it makes sense
 to group by Community and Compound
@@ -272,7 +270,7 @@ averaged_phgrofit = avg_phgrofit(phgrofit_output,c("Community","Compound"))
 ### Scaling
 
 For many applications such as heatmaps or PCA plots, the user will need
-to scale the data. This can be accomplished with the scale\_phgrofit
+to scale the data. This can be accomplished with the scale_phgrofit
 function.
 
 This function offers the option to scale for each specified group
@@ -342,9 +340,9 @@ p1
 
 Oftentimes the user will want to be able to inspect the data displayed
 in the above plot more thoroughly. That is the purpose of the
-dendropsect\_kinetic and dendorospect\_model functions. The
-dendrospect\_kinetic function returns kinetic data with the
-dendogram\_cluster each observation belongs to.
+dendropsect_kinetic and dendorospect_model functions. The
+dendrospect_kinetic function returns kinetic data with the
+dendogram_cluster each observation belongs to.
 
 ``` r
 d1 = dendrospect_kinetic(averaged_phgropro,scaled,k=4)
@@ -366,7 +364,7 @@ head(d1)
 #> 6 6.98975 0.015986974                  1
 ```
 
-The dendrospect\_model function returns the modeling data with the
+The dendrospect_model function returns the modeling data with the
 dendogram cluster each observation belongs to.
 
 ``` r
@@ -512,17 +510,16 @@ print(head(grofit_clusters,5))
 2.  phgrofit() : Takes the output of phgrofit::phgropro()) and extracts
     relevant physiological features by fitting a smoothing spline.
 
-3.  model\_fit\_check(): Allows for visual checking of the modeling fit
-    by printing graphs for the combination of conditions the user
-    supplies.
+3.  model_fit_check(): Allows for visual checking of the modeling fit by
+    printing graphs for the combination of conditions the user supplies.
 
-4.  avg\_phgropro(): Allows the user to easily average phgropro data for
+4.  avg_phgropro(): Allows the user to easily average phgropro data for
     the specified grouping.
 
-5.  avg\_phgrofit(): Allows the user to easily average phgrofit data for
+5.  avg_phgrofit(): Allows the user to easily average phgrofit data for
     the specified grouping.
 
-6.  scale\_phgrofit(): Allows the user to easily scale phgrofit modeling
+6.  scale_phgrofit(): Allows the user to easily scale phgrofit modeling
     data. Can be done individually per specified group
 
 7.  heatmapper(): Creates an interactive heat map with associated
@@ -535,14 +532,14 @@ print(head(grofit_clusters,5))
     colored by cluster number, and the corresponding average kinetic
     curves for each cluster.
 
-10. dendrospect\_kinetic(): Returns a data frame of the kinetic data
-    with the cluster that each Sample.ID would correspond to based on
+10. dendrospect_kinetic(): Returns a data frame of the kinetic data with
+    the cluster that each Sample.ID would correspond to based on
     hierchical clustering of the modeling data.
 
-11. dendrospect\_model(): Returns a data frame with the modeling data
+11. dendrospect_model(): Returns a data frame with the modeling data
     from phgrofit with the cluster that each Sample.ID would correspond
     to based on hierchical clustering of the data.
 
 12. grofit(): Extracts relevant physiological features for just OD600 by
     fitting a smoothing spline. All other functions expecting
-    phgrofit\_output can also take grofit\_output instead.
+    phgrofit_output can also take grofit_output instead.

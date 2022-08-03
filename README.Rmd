@@ -13,7 +13,7 @@ knitr::opts_chunk$set(
   fig.path = "man/figures/README-"
 )
 ```
-# phgrofit  
+# phgrofit <a href='https://github.com/baynec2/phgrofit'><img src='man/hex-phgrofit.png' align="right" height="139" /></a>
 
 phgrofit is a R package that is designed to provide tools for making kinetic analysis of OD600 and pH data easy.
 
@@ -24,7 +24,9 @@ In short, this package is designed to take OD600 and pH (gained using the BCECF 
 ## Installation 
 
 ```{r installation, eval = FALSE}
-devtools::install_github("Kaleido-Biosciences/phgrofit")
+# This used to be hosted under Kaleido's github. Due to uncertainties as to the fate of that account the 
+# maintained version has subsequently been forked to my account
+devtools::install_github("baynec2/phgrofit")
 ```
 
 <!-- badges: start -->
