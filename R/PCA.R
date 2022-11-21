@@ -26,7 +26,7 @@
 #' ### printing PCA plot with colored confidence intervals for community
 #' \dontrun{community_PCA = PCA(phgrofit_data,"Community")
 #' print(community_PCA)}
-PCA = function(phgrofit_data,group="Sample.ID",mouse_over = "Compound"){
+PCA = function(phgrofit_data,group="Sample.ID",mouse_over = "Sample.ID"){
     if("min_pH" %in% names(phgrofit_data)){
     #if it is phgrofit data
     #Selecting numeric data
