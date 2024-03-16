@@ -18,10 +18,11 @@ Imports:
     ModelMetrics (>= 1.2.2.2),
     tibble (>= 3.1.6),
     viridis (>= 0.6.2),
+    dr4pl (>= 2.0.0),
     magrittr
 License: MIT + file LICENSE
 Encoding: UTF-8
 LazyData: true
-RoxygenNote: 7.1.2
+RoxygenNote: 7.3.1
 Suggests: 
     testthat (>= 2.1.0)

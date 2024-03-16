@@ -5,7 +5,7 @@
 \title{PCA: Easily making a PCA plot with phgrofit data
 Copyright (c) 2019. Kaleido Biosciences. All Rights Reserved}
 \usage{
-PCA(phgrofit_data, group = "Sample.ID", mouse_over = "Compound")
+PCA(phgrofit_data, group = "Sample.ID", mouse_over = "Sample.ID")
 }
 \arguments{
 \item{phgrofit_data}{This is the output origniating from phgrofit or one
