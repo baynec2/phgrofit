@@ -3,7 +3,7 @@
 #' @param standard_data data frame containing standard curve data. Has to have a column named IR and column named pH
 #' @param prediction_data data frame with the prediction data, must contain the IR. Must have a column named IR.
 #'
-#' @return
+#' @return a data frame with predicted pH values
 #' @export
 #'
 #' @examples
